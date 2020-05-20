@@ -1,0 +1,79 @@
+[
+  {
+    "name": "OpenWeather",
+    "short_name": "OW",
+    "url_city": "http://api.openweathermap.org/data/2.5/weather",
+    "par_city": {
+      "q": "",
+      "appid": "0b127f94471b881be005710e8b44bcc7",
+      "units": "metric"
+    },
+    "url_coord": "https://api.openweathermap.org/data/2.5/weather",
+    "par_coord": {
+      "lat": "",
+      "lon": "",
+      "appid": "0b127f94471b881be005710e8b44bcc7",
+      "units": "metric"
+    }
+  },
+  {
+    "name": "Weatherbit",
+    "short_name": "WB",
+    "url_city": "http://api.weatherbit.io/v2.0/current",
+    "par_city": {
+      "city": "",
+      "key": "d3aa2462409e4a83a9dd35dad1a5e6cb"
+    },
+    "url_coord": "http://api.weatherbit.io/v2.0/current",
+    "par_coord": {
+      "lat": "",
+      "lon": "",
+      "key": "d3aa2462409e4a83a9dd35dad1a5e6cb"
+    }
+  },
+  {
+    "name": "World Weather Online",
+    "short_name": "WWO",
+    "url": "http://api.worldweatheronline.com/premium/v1/weather.ashx",
+    "par": {
+      "q": "",
+      "num_of_days": 1,
+      "key": "afc6afd25720484898173015201705",
+      "format": "json"
+    }
+  },
+  {
+    "name": "WeatherAPI",
+    "short_name": "WAPI",
+    "url": "http://api.weatherapi.com/v1/current.json",
+    "par": {
+      "q": "",
+      "key": "219cc9210c2b446283493152201705"
+    }
+  },
+  {
+    "name": "AccuWeather",
+    "short_name": "AW",
+    "url_ID": "http://dataservice.accuweather.com/currentconditions/v1/{location_ID}",
+    "par_ID": {
+      "apikey": "w2eET6W4KKZL9xfCYZInmY9CMwyE2piZ"
+    },
+    "url_search": "http://dataservice.accuweather.com/locations/v1/cities/search",
+    "par_search": {
+      "q": "",
+      "apikey": "w2eET6W4KKZL9xfCYZInmY9CMwyE2piZ"
+    }
+  },
+  {
+    "name": "ClimaCell",
+    "short_name": "CC",
+    "url_coord": "https://api.climacell.co/v3/weather/realtime",
+    "par_coord": {
+      "lat": "",
+      "lon": "",
+      "unit_system": "si",
+      "fields": "temp",
+      "apikey": "4mX3FIlTZ47po8homYW6DdT1o4vdnbj8"
+    }
+  }
+]
