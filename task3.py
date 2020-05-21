@@ -210,6 +210,8 @@ def get_AW(**location):
         if cities_log[0] > 1:
             answer.append(cities_log[0])
         par['q'] = location['city']
+    elif "lat" and "lon" in location.keys():
+        raise KeyError
     else:
         raise AttributeError
     try:
@@ -315,8 +317,12 @@ def get_weather(**location):
                 # are you sure in your city name?
                 report.append("Unknown city")
         elif "lat" and "lon" in location.keys():
-            res = globals()['get_' + s[1]](lat=location['lat'],
-                                           lon=location['lon'])
+            try:
+                res = globals()['get_' + s[1]](lat=location['lat'],
+                                               lon=location['lon'])
+            except KeyError:
+                report.append(s[0] + " can't use this endpoint")
+                continue
         if type(res) is list and len(res) > 1 and not flag:
             # we got multiple cities with one name
             flag = True
@@ -335,6 +341,3 @@ def get_weather(**location):
         report.append("More than one city with given name: enter "
                       "coordinates to specify place")
     return report
-
-
-get_services()
