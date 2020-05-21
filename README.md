@@ -2,26 +2,34 @@
 ### Задание
 >Необходимо написать агрегатор информации о погоде из открытых сервисов.
 #
-### Описание API
+### Введение
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Агрегатор работает с шестью сервисами: [OpenWeather](https://openweathermap.org/api), [Weatherbit](https://www.weatherbit.io/api), [World Weather Online](https://www.worldweatheronline.com/developer/api/), [WeatherAPI](https://www.weatherapi.com/api-explorer.aspx), [AccuWeather](https://developer.accuweather.com/apis), [ClimaCell](https://www.climacell.co/weather-api/). В качестве наиболее универсальных методов формирования запроса выбраны название города и географические координаты. Последние можно получить с помощью вспомогательного метода ```get_coordinates()``` из загруженной базы городов ([источник](openweathermap.org)).<br/><br/>
 
-
+### Описание методов API
 
 | Метод | Параметры | Возвращаемый результат |
 | :--- | :---: | :---: |
-| ```get_cars()``` <br/> Вывод списка автомобилей | ```_and=True```<br/><br/>```**filters```<br/>"DD MM YYYY" | float <br/> |
-| ```add_car()``` <br/> Добавление автомобиля(-ей) | date_range_string <br/> "DD MM YYYY - <br/>DD MM YYYY" | float <br/> |
-| ```del_car()``` <br/> Максимальная и минимальная цены за промежуток времени |date_range_string <br/> "DD MM YYYY - <br/>DD MM YYYY" | JSON str |
-| ```get_stats()``` <br/> Статистика по базе данных |   –   | JSON str * |
+| ```get_weather()``` <br/> Вывод информации о погоде в городе | ```**location``` <br/> В качестве ключей словаря можно использовать ```'city'``` – название города (предпочтительно англоязычное), <br/> либо ```'lat', 'lon'``` – широту и долготу  | str \* |
+| ```get_services()``` <br/> Список сервисов с которыми работает приложение | – | str \*\* |
+| ```get_coordinates()``` <br/> Широта и долгота города | ```city``` <br/> Название города | list \*\*\* |
 
-\* structure of ```get_stats()``` JSON output is:
+\* структура вывода функции ```get_weather()``` output is: (конец строки ```'\n'```)
 ```
-[
-  {
-    "all entries": <int>,  # number of all entries 
-    "start of monitoring": <str>,  # date of first monitoring period start: "DD mmmm YYYY"
-    "end of monitoring": <str>,  # date of last monitoring period end: "DD mmmm YYYY"
-    "global min price": [<float>, <str>],  # list of minimal price and corresponding date
-    "global max price": [<float>, <str>]  # list of maximal price and corresponding date
-  }
-]
+Current temperature in <city> is:
+...
+<temperature>℃ (<service>)
+...
+More than one city with given name: enter coordinates to specify place   # опционально
+```
+\*\* структура вывода функции ```get_services()```:
+```
+...
+<service> status is <status>   # <status> может быть "OK" или <response.status_code> или <Error message>
+...
+```
+\*\*\* структура вывода функции ```get_coordinates()```:
+```
+[<int>, {'lat': <float>,      # первый элемент списка – число городов с одинаковым названием
+         'lon': <float>,      # второй – словарь, в который записаны координаты и код страны
+         'country': <str>}]   #          первого совпавшего с запросом города из базы
 ```
