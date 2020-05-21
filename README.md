@@ -3,10 +3,10 @@
 >Необходимо написать агрегатор информации о погоде из открытых сервисов.
 #
 ### Введение
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Агрегатор работает с шестью сервисами: [OpenWeather](https://openweathermap.org/api), [Weatherbit](https://www.weatherbit.io/api), [World Weather Online](https://www.worldweatheronline.com/developer/api/), [WeatherAPI](https://www.weatherapi.com/api-explorer.aspx), [AccuWeather](https://developer.accuweather.com/apis), [ClimaCell](https://www.climacell.co/weather-api/). В качестве наиболее универсальных конечных точек различных API выбраны название города и географические координаты. Последние можно получить по названию города с помощью вспомогательного метода ```get_coordinates()``` из загруженной базы городов ([источник](openweathermap.org)). Этот же метод обрабатывает совпадающие названия городов.<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Вывод погоды от разных сервисов унифицирован с помощью шаблона.<br/><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Агрегатор работает с шестью сервисами: [OpenWeather](https://openweathermap.org/api), [Weatherbit](https://www.weatherbit.io/api), [World Weather Online](https://www.worldweatheronline.com/developer/api/), [WeatherAPI](https://www.weatherapi.com/api-explorer.aspx), [AccuWeather](https://developer.accuweather.com/apis), [ClimaCell](https://www.climacell.co/weather-api/). Вывод погоды от разных сервисов унифицирован с помощью шаблона.<br/><br/>
 
 ### Описание методов API
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;В качестве наиболее универсальных конечных точек различных API выбраны название города и географические координаты. Последние можно получить по названию города с помощью вспомогательного метода ```get_coordinates()``` из загруженной базы городов ([источник](openweathermap.org)). Этот же метод обрабатывает совпадающие названия городов.<br/>
 
 | Метод | Параметры | Возвращаемый результат |
 | :--- | :---: | :---: |
